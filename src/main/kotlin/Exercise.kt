@@ -221,16 +221,184 @@ fun main(vararg args: String) {
 //    Now moving through comments using the PostId field to determine who made the post
 
     var commentsAboutLeanneGrahamPosts: Int = 0
+    var commentsAboutErvinHowellPosts: Int = 0
+    var commentsAboutClementineBauchPosts: Int = 0
+    var commentsAboutPatriciaLebsackPosts: Int = 0
+    var commentsAboutChelseyDietrichPosts: Int = 0
+    var commentsAboutMrsDennisSchulistPosts: Int = 0
+    var commentsAboutKurtisWeissnatPosts: Int = 0
+    var commentsAboutNicholasRunolfsdottirVPosts: Int = 0
+    var commentsAboutGlennaReichertPosts: Int = 0
+    var commentsAboutClementinaDuBuquePosts: Int = 0
+
+
+    var user1Range = 10 until  1
 
 
 
     for (i in blogComments.comments.indices){
 
-        if (blogComments.comments[i].postId == 1){
+        var user = blogComments.comments[i].postId
 
+//
+        if (user in 1..10) {
+            commentsAboutLeanneGrahamPosts++
         }
 
+        if (user in 11..20) {
+            commentsAboutErvinHowellPosts++
+        }
+        if (user in 21..30) {
+            commentsAboutClementineBauchPosts++
+        }
+        if (user in 31..40) {
+            commentsAboutPatriciaLebsackPosts++
+        }
+        if (user in 41..50) {
+            commentsAboutChelseyDietrichPosts++
+        }
+
+        if (user in 51..60) {
+            commentsAboutMrsDennisSchulistPosts++
+        }
+        if (user in 61..70) {
+            commentsAboutKurtisWeissnatPosts++
+        }
+        if (user in 71..80) {
+            commentsAboutNicholasRunolfsdottirVPosts++
+        }
+        if (user in 81..90) {
+            commentsAboutGlennaReichertPosts++
+        }
+        if (user in 91..100) {
+            commentsAboutClementinaDuBuquePosts++
+        }
+
+
+
+
     }
+
+//    println(commentsAboutLeanneGrahamPosts+
+//    commentsAboutErvinHowellPosts+commentsAboutClementineBauchPosts+commentsAboutPatriciaLebsackPosts
+//    +commentsAboutChelseyDietrichPosts
+//    +commentsAboutMrsDennisSchulistPosts
+//    +commentsAboutKurtisWeissnatPosts
+//    +commentsAboutNicholasRunolfsdottirVPosts
+//    +commentsAboutGlennaReichertPosts
+//    +commentsAboutClementinaDuBuquePosts)
+
+    //from the above we now have the total comments made on each users post out of the 500 comments
+
+
+    //Now we divide through to get thier average score which is a ratio of total comments on their post and the number of their total post
+//    for example user1 got a total of 66 comments made on all his post, and he made a total of 10 post his average score is
+//    totalNumberOfCommentsAboutHisPost = 66 / total post he made = 10
+//    user1 average score = 66:10  or 66/10  = 6.6
+
+//    Now we apply this logic to our gotten Data
+
+//    var averageScores :HashMap<Int, Int> = HashMap<Int, Int>()
+//
+//    averageScores.put(leanneGrahamPosts, commentsAboutLeanneGrahamPosts)
+
+
+
+//    Method to calculate the average score of each user
+    fun getAverageUserScore ( numOfCommentsOnUsersPosts :Double,  usersTotalPosts :Double ): Double {
+
+         val ans = numOfCommentsOnUsersPosts/usersTotalPosts
+
+     return ans
+    }
+
+//    Appying the method to each user's data
+
+    val averageScoreForLeanneGrahamPosts = getAverageUserScore(commentsAboutLeanneGrahamPosts.toDouble(), leanneGrahamPosts.toDouble())
+
+    val averageScoreForErvinHowellPosts = getAverageUserScore(commentsAboutErvinHowellPosts.toDouble(), ervinHowellPosts.toDouble())
+
+    val averageScoreForClementineBauchPosts = getAverageUserScore(commentsAboutClementineBauchPosts.toDouble(), clementineBauchPosts.toDouble())
+
+    val averageScoreForPatriciaLebsackPosts = getAverageUserScore(commentsAboutPatriciaLebsackPosts.toDouble(), patriciaLebsackPosts.toDouble())
+
+    val averageScoreForChelseyDietrichPosts = getAverageUserScore(commentsAboutChelseyDietrichPosts.toDouble(), chelseyDietrichPosts.toDouble())
+
+    val averageScoreForMrsDennisSchulistPosts = getAverageUserScore(commentsAboutMrsDennisSchulistPosts.toDouble(), mrsDennisSchulistPosts.toDouble())
+
+    val averageScoreForKurtisWeissnatPosts = getAverageUserScore(commentsAboutKurtisWeissnatPosts.toDouble(), kurtisWeissnatPosts.toDouble())
+
+    val averageScoreForNicholasRunolfsdottirVPosts = getAverageUserScore(commentsAboutNicholasRunolfsdottirVPosts.toDouble(), nicholasRunolfsdottirVPosts.toDouble())
+
+    val averageScoreForGlennaReichertPosts = getAverageUserScore(commentsAboutGlennaReichertPosts.toDouble(), glennaReichertPosts.toDouble())
+
+    val averageScoreForClementinaDuBuquePosts = getAverageUserScore(commentsAboutClementinaDuBuquePosts.toDouble(), clementinaDuBuquePosts.toDouble())
+
+
+//    Creating a list of the users average which will be used to arrange the values in Descending order to enable us know the users with top 3 average comments
+
+   val usersAverageScores = listOf<Double>(averageScoreForLeanneGrahamPosts, averageScoreForErvinHowellPosts, averageScoreForClementineBauchPosts, averageScoreForPatriciaLebsackPosts,
+           averageScoreForChelseyDietrichPosts, averageScoreForMrsDennisSchulistPosts, averageScoreForKurtisWeissnatPosts, averageScoreForNicholasRunolfsdottirVPosts,
+           averageScoreForGlennaReichertPosts, averageScoreForClementinaDuBuquePosts
+   )
+
+    val scoresfromToptoBottom = usersAverageScores.sortedDescending()
+
+
+//    Getting only the top 3 average scores
+    val top3fromToptoBottom = scoresfromToptoBottom.dropLast(7)
+
+//    println(top3fromToptoBottom)
+
+//    Now we Print Out our answer the top 3 users with the higest average comments
+
+
+
+    val finalAnswer: String =
+            "\n ${blogUsers.users.get(0).name} - ${blogUsers.users.get(0).id}, Score: ${top3fromToptoBottom.get(0)}" +
+
+            "\n ${blogUsers.users.get(1).name} - ${blogUsers.users.get(1).id}, Score: ${top3fromToptoBottom.get(1)}" +
+
+            "\n ${blogUsers.users.get(2).name} - ${blogUsers.users.get(2).id}, Score: ${top3fromToptoBottom.get(2)}"
+
+
+    println(finalAnswer)
+
+
+
+
+
+//    println(averageScoreForLeanneGrahamPosts)
+//
+//    println(averageScoreForErvinHowellPosts)
+//
+//    println(averageScoreForClementineBauchPosts)
+//
+//    println(averageScoreForPatriciaLebsackPosts)
+//
+//    println(averageScoreForChelseyDietrichPosts)
+//
+//    println(averageScoreForMrsDennisSchulistPosts)
+//
+//    println(averageScoreForKurtisWeissnatPosts)
+//
+//    println(averageScoreForNicholasRunolfsdottirVPosts)
+//
+//    println(averageScoreForGlennaReichertPosts)
+//
+//    println(averageScoreForClementinaDuBuquePosts)
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
