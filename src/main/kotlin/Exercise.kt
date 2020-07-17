@@ -1,5 +1,3 @@
-import resources.Data
-
 /**
 
     # Fueled Kotlin Exercise
@@ -25,6 +23,7 @@ import resources.Data
  */
 
 // 1. First, start by modeling the data objects that will be used.
+//
 
 
 
