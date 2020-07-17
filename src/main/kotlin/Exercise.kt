@@ -86,11 +86,10 @@ data class geoObject (
 )
 
 
-
-
 fun main(vararg args: String) {
 
     // 2. Next, decode the JSON source using `[Data.getUsers()]`
+
 
     BlogResults(
             users = Data.getUsers(),
